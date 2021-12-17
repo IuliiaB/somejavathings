@@ -48,7 +48,3 @@ public class Human {
     }
 }
 
-enum Gender {
-    MALE,
-    FEMALE
-}
