@@ -1,6 +1,6 @@
 package com.oop.lessonthree;
 
-public class Student extends Human{
+public class Student extends Human implements CSVConverter{
     private int id;
     private String groupName;
 
@@ -49,5 +49,16 @@ public class Student extends Human{
                 ", id=" + id +
                 ", groupName='" + groupName + '\'' +
                 '}';
+    }
+
+    @Override
+    public String toCSVString() {
+        return this.getName()+";"+this.getLastName()+";"+this.getGender()+";"+this.getId()+";"+this.getGroupName();
+    }
+
+    @Override
+    public Student fromCSVString(String strs) {
+        String[] studentProps = strs.split(";");
+        return new Student(studentProps[0],studentProps[1], Gender.valueOf(studentProps[2]), Integer.valueOf(studentProps[3]), studentProps[4]);
     }
 }

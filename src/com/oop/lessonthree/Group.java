@@ -1,6 +1,7 @@
 package com.oop.lessonthree;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Group {
     String groupName;
@@ -81,29 +82,7 @@ public class Group {
     }
 
     public Student[] sortStudentsByLastName() {
-        int studentsNum = 0;
-        for (Student student : students) {
-            if (student != null)
-                studentsNum += 1;
-        }
-        Student[] result = new Student[studentsNum];
-        int j = 0;
-        for (int i = 0; i < students.length; i++) {
-            if (students[i] != null) {
-                result[j] = students[i];
-                j++;
-            }
-        }
-        Student tmp;
-        for (int k = 0; k < studentsNum; k++) {
-            for (int i = 0; i < studentsNum - 1; i++) {
-                if (result[i].getLastName().compareTo(result[i + 1].getLastName()) >0) {
-                    tmp = result[i];
-                    result[i] = result[i + 1];
-                    result[i + 1] = tmp;
-                }
-            }
-        }
-        return result;
+        Arrays.sort(students, Comparator.nullsLast(new StudentLastNameComparator()));
+        return students;
     }
 }

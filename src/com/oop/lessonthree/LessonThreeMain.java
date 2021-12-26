@@ -7,6 +7,7 @@ public class LessonThreeMain {
         Student student3 = new Student("Alesya", "Pyato4kina", Gender.FEMALE, 8765);
         Student student4 = new Student("Olga", "NeOlga", Gender.FEMALE, 5432);
         Student student5 = new Student("Kolya", "Ay Kolin LastName", Gender.MALE, 2798);
+        System.out.println("Adding student from keyboard:");
 
         Group groupOne = new Group("Group One");
         try {
@@ -23,6 +24,10 @@ public class LessonThreeMain {
         } catch (GroupOverflowException e) {
             System.out.println("There is an exception " + e.getClass() + ". Group is full");
         }
+
+        Student student6 = AddNewStudentFromKeyboard.addNewStudent();
+        AddNewStudentFromKeyboard.addStudentToTheGroup(student6, groupOne);
+
         System.out.println("Just formed group");
         System.out.println(groupOne);
 
@@ -47,5 +52,8 @@ public class LessonThreeMain {
 
         System.out.println("Group after change:");
         System.out.println(groupOne);
+
+        System.out.println("Check method toCSVString. Result: " + student5.toCSVString());
+        System.out.println("Check method fromCSVString: " + new Student().fromCSVString("FN;LN;FEMALE;2345;Group One"));
     }
 }
