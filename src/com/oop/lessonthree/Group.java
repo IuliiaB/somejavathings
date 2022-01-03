@@ -47,6 +47,9 @@ public class Group {
         for (int i = 0; i < students.length; i++) {
             if (students[i] == null) {
                 students[i] = student;
+                if (student !=null) {
+                    student.setGroupName(this.getGroupName());
+                }
                 break;
             }
             if (i == students.length - 1) {

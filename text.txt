@@ -1,0 +1,8 @@
+What are Objects?
+Objects are always called as instances of a class. Objects are created from class in java or any other languages. Objects are those that have state and behaviour. Objects are abstract data types (i.e., objects behaviour is defined by a set of values and operations).
+
+These objects always correspond to things found in the real world, i.e., real entities. So, they are also called a run time entity of the world. These are self–contained which consists of methods and properties which makes data useful. Objects can be both physical and logical data. It contains addresses and takes up some space in memory. Some of the examples of objects are a dog, chair, tree etc.
+
+When we treat animals as objects, it has states like colour, name, breed etc., and behaviours such as eating, wagging the tail etc.
+
+Suppose, we have created a class called My book, we specify the class name followed by the object name, and we use the keyword new.
