@@ -10,8 +10,8 @@ public class Main {
             File file1 = new File(args[0]);
             File file2 = new File(args[1]);
             File file3 = new File(args[2]);
-            pw.println(FileService.compareTwiFiles(file1, file2));
-            pw.println(FileService.compareTwiFiles(file1, file3));
+            pw.println(FileService.compareTwoFiles(file1, file2));
+            pw.println(FileService.compareTwoFiles(file1, file3));
         } catch (IOException e) {
             e.printStackTrace();
         }

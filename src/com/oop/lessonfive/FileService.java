@@ -1,6 +1,7 @@
 package com.oop.lessonfive;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class FileService {
     public static void copyFile(File in, File out) throws IOException {
@@ -20,15 +21,19 @@ public class FileService {
         }
     }
 
-    public static boolean compareTwiFiles(File file1, File file2) throws IOException{
-        byte[] buffer = new byte[100];
+    public static boolean compareTwoFiles(File file1, File file2) throws IOException {
+        byte[] buffer1 = new byte[100];
+        byte[] buffer2 = new byte[100];
         try (InputStream inputStream1 = new FileInputStream(file1); InputStream inputStream2 = new FileInputStream(file2)) {
-            for(;;) {
-                int readBytes1 = inputStream1.read(buffer);
-                int readBytes2 = inputStream2.read(buffer);
+            for (; ; ) {
+                int readBytes1 = inputStream1.read(buffer1);
+                int readBytes2 = inputStream2.read(buffer2);
                 if (readBytes1 != readBytes2) {
                     return false;
-                } else if ((readBytes1 <=0) && (readBytes1 == readBytes2)) {
+                }
+                if (Arrays.compare(buffer1, buffer2) != 0) {
+                    return false;
+                } else if ((readBytes1 <= 0) && (readBytes1 == readBytes2) && (Arrays.compare(buffer1, buffer2) == 0)) {
                     return true;
                 }
             }
